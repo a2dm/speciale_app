@@ -1,0 +1,10 @@
+{
+  "name": "restaurant",
+  "app_id": "",
+  "proxies": [
+      {
+        "path" : "/speciale_app",
+        "proxyUrl": "http://www.specialepanificacoes.com/spdmws"
+      }
+]
+}

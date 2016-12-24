@@ -1,0 +1,67 @@
+/*
+ * Common
+ */
+.align-right {
+	text-align: right;
+}
+
+.font-15x {
+	font-size: 150%;
+}
+
+.item-stacked-label .data {
+	display: block;
+	height: 24px;
+	padding-top: 2px;
+	padding-left: 0px;
+	font-size: 14px;
+	line-height: 16px;
+	vertical-align: middle;
+	margin-top: 4px;
+	color: #aaaaaa;
+}
+
+.has-extended-footer {
+ bottom: 70px;
+}
+
+.extended-footer {
+ height: 70px;
+}
+
+.extended-footer .subtitle {
+ text-align: center;
+ width: 100%;
+ position: absolute;
+ bottom: 10px;
+ font-style: italic;
+}
+
+/* Empty. Add your own CSS if you like */
+img {max-width: 100%;}
+
+.content-inner{padding: 16px;}
+
+.content-horizontal-padding {
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+.card.col{padding: 0;}
+
+/*
+ * Card margin
+ * When the cards are laying out in a two or more columns (eg: two card per row)
+ * the vertical distance between then should be equal to their horizontal
+ */
+.row.colums-two .card{
+	margin: 10px 10px;
+}
+
+/*
+ * Android. Action sheet
+ */
+
+.platform-android .action-sheet .button {
+	padding-left: 16px;
+}
