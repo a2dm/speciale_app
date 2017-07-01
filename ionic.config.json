@@ -1,10 +1,10 @@
 {
-  "name": "restaurant",
-  "app_id": "",
+  "name": "Speciale",
+  "app_id": "836cd6ac",
   "proxies": [
-      {
-        "path" : "/speciale_app",
-        "proxyUrl": "http://www.specialepanificacoes.com/spdmws"
-      }
-]
+    {
+      "path": "/speciale_app",
+      "proxyUrl": "http://localhost:8080/spdmws"
+    }
+  ]
 }
