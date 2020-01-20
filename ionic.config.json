@@ -4,7 +4,7 @@
   "proxies": [
     {
       "path": "/speciale_app",
-      "proxyUrl": "http://192.168.25.8:8080/spdmws"
+      "proxyUrl": "http://192.168.25.7:8080/spdmws"
     }
   ]
 }

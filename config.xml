@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.speciale.a2dm" version="1.9.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.speciale.a2dm" version="1.9.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Speciale</name>
     <description>
         Pães Artesanais
@@ -42,7 +42,6 @@
     <icon src="resources\android\icon\drawable-xhdpi-icon.png" />
     <engine name="android" spec="^6.2.3" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.2" />
-    <plugin name="de.appplant.cordova.plugin.email-composer" spec="0.8.2" />
     <plugin name="phonegap-plugin-push" spec="~1.8.1">
         <variable name="SENDER_ID" value="569717330966" />
     </plugin>
