@@ -5,28 +5,36 @@
 
 	<form novalidate name="pesquisarForm">
 		<ion-nav-buttons side="right">
-			<button class="button button-clear icon ion-folder" ui-sref="app.products({categoryId: category.categoryId, categoryName: category.title})"></button>	
+			<button class="button button-clear icon ion-folder"
+				ui-sref="app.products({categoryId: category.categoryId, categoryName: category.title})"></button>
 		</ion-nav-buttons>
-				
+
 		<ion-content class="has-extended-footer">
-			<ion-list can-swipe="true">
-				<ion-item class="item-input item-stacked-label">
-					<span class="input-label">Data do Pedido *</span>
-					<input type="date" name="dataPedido" ng-model="vm.dataPedido" required style="width: 150px"/>
-					<p ng-show="pesquisarForm.dataPedido.$error.required && pesquisarForm.dataPedido.$dirty" 
-					class="error-message">
-						O campo Data do Pedido é obrigatório
-					</p>
-				</ion-item>
-			</ion-list>
+
+			<div class="row colums-two">
+				<div class="card col home" style="padding: 15px;opacity: 0.7;height: 160px;">
+					<label class="item item-input item-stacked-label">
+						<span class="input-label">Data do Pedido</span>
+						<input type="date" name="dataPedido" ng-model="vm.dataPedido" required>
+						<p ng-show="pesquisarForm.dataPedido.$error.required && pesquisarForm.dataPedido.$dirty"
+							class="error-message-card">
+							O campo Data do Pedido é obrigatório
+						</p>
+					</label>
+					<button class="button button-small rounded button-stable" style="margin-top: 5px;float: right;width: 100px;"
+						ng-click="vm.pesquisar(pesquisarForm)">
+						Pesquisar
+					</button>
+				</div>
+			</div>
 
 			<ion-list can-swipe="true">
 				<ion-item ng-repeat="item in vm.items">
-					
+
 					<h2 class="text-left"><strong>Protocolo: {{item.pedido.idPedido}}</strong></h2>
 					<hr>
 					<h3 class="text-left"><strong>Observação: {{item.pedido.observacao}}</strong></h3>
-					
+
 					<ion-option-button class="button-balanced" ng-click="vm.preparaAlterarPedido(item)">
 						Alterar
 					</ion-option-button>
@@ -36,9 +44,5 @@
 				</ion-item>
 			</ion-list>
 		</ion-content>
-
-		<div class="bar bar-footer bar-calm extended-footer" ng-click="vm.pesquisar(pesquisarForm)">
-			<div class="title">Pesquisar</div>
-		</div>
 	</form>
 </ion-view>

@@ -5,74 +5,92 @@
 		</button>
 	</ion-nav-buttons>
 	<ion-content>
-		<div class="row colums-two">
-			<div class="card col home">
-				<a class="item item-text-wrap" ng-click="vm.preparaAlterarUltimoPedido()">
-					<h1><i class="ion-edit"></i></h1>
-					<h3 style="text-align: center">Alterar Último Pedido</h3>
-				</a>
-			</div>
 
-			<div class="card col home">
-				<a class="item item-text-wrap" ng-click="vm.inativarUltimoPedido()">
-					<h1><i class="ion-close"></i></h1>
-					<h3 style="text-align: center" >Inativar Último Pedido</h3>
-				</a>
+		<div class="box blue home-hello">
+			<img ng-src="images/paes.jpg" />
+			<div class="item" style="padding-bottom: 25px">
+				<h1>Pedidos</h1>
 			</div>
 		</div>
 
-		<div class="row colums-two">
-			<div class="card col home">
-				<a class="item item-text-wrap" ng-click="vm.preparaPesquisar()">
-					<h1><i class="ion-android-search" ></i></h1>
-					<h3 style="text-align: center">Pesquisar</h3>
-				</a>
+		<div style="padding: 20px;">
+			<div class="row colums-two">
+				<div class="card col home">
+					<a class="item item-text-wrap" ng-click="vm.preparaAlterarUltimoPedido()">
+						<h1><i class="ion-edit"></i></h1>
+						<h3 style="text-align: center">Alterar Último Pedido</h3>
+					</a>
+				</div>
+
+				<div class="card col home" >
+					<a class="item item-text-wrap" ng-click="vm.inativarUltimoPedido()">
+						<h1><i class="ion-close"></i></h1>
+						<h3 style="text-align: center">Inativar Último Pedido</h3>
+					</a>
+				</div>
 			</div>
 
-			<div class="card col home">
-				<a class="item item-text-wrap" ng-click="vm.novoPedido()">
-					<h1><i class="ion-plus" ></i></h1>
-					<h3 style="text-align: center">Novo Pedido</h3>
-				</a>
+			<div class="row colums-two">
+				<div class="card col home" >
+					<a class="item item-text-wrap" ng-click="vm.preparaPesquisar()">
+						<h1><i class="ion-android-search"></i></h1>
+						<h3 style="text-align: center">Pesquisar</h3>
+					</a>
+				</div>
+
+				<div class="card col home">
+					<a class="item item-text-wrap" ng-click="vm.novoPedido()">
+						<h1><i class="ion-plus"></i></h1>
+						<h3 style="text-align: center">Novo Pedido</h3>
+					</a>
+				</div>
 			</div>
+
 		</div>
-	
+
 		<style>
 			.badge {
-			  padding: 1px 9px 2px;
-			  font-size: 12.025px;
-			  font-weight: bold;
-			  white-space: nowrap;
-			  color: #ffffff;
-			  background-color: #999999;
-			  -webkit-border-radius: 9px;
-			  -moz-border-radius: 9px;
-			  border-radius: 9px;
+				padding: 1px 9px 2px;
+				font-size: 12.025px;
+				font-weight: bold;
+				white-space: nowrap;
+				color: #ffffff;
+				background-color: #999999;
+				-webkit-border-radius: 9px;
+				-moz-border-radius: 9px;
+				border-radius: 9px;
 			}
-			
+
 			.badge-warning {
-			  background-color: #f89406;
+				background-color: #f89406;
 			}
+
 			.badge-warning:hover {
-			  background-color: #c67605;
+				background-color: #c67605;
 			}
+
 			.badge-success {
-			  background-color: #468847;
+				background-color: #468847;
 			}
+
 			.badge-success:hover {
-			  background-color: #356635;
+				background-color: #356635;
 			}
+
 			.badge-info {
-			  background-color: #3a87ad;
+				background-color: #3a87ad;
 			}
+
 			.badge-info:hover {
-			  background-color: #2d6987;
+				background-color: #2d6987;
 			}
+
 			.badge-inverse {
-			  background-color: #333333;
+				background-color: #333333;
 			}
+
 			.badge-inverse:hover {
-			  background-color: #1a1a1a;
+				background-color: #1a1a1a;
 			}
 		</style>
 	</ion-content>

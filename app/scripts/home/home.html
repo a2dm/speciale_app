@@ -8,43 +8,41 @@
 			{{vm.login | uppercase}}
 		</button>
 	</ion-nav-buttons>
-	
+
 	<ion-content>
 
-		<div class="box blue home-hello" style="text-align: center; padding-top: 10px">
-			<img ng-src="{{vm.products[0].pictures[0]}}" style="max-width: 80%;" />
-		</div>
-		
-		<div ng-repeat="e in vm.categories" class="row colums-two">
+		<ion-slide-box>
+			<ion-slide ng-repeat="product in vm.products">
+				<div class="box blue home-hello">
+					<img ng-src="{{product.pictures[0]}}" />
+					<div class="item">
+						<h1 style="font-size:20px;">Speciali Pães Artesanais</h1> 
+					</div>
+				</div>
+			</ion-slide>
+		</ion-slide-box>
 
-			<div class="card col home">
-				<a class="item item-text-wrap" ng-click="vm.showCart()">
-					<h1><i class="ion-gear-b"></i></h1>
-					<h2>Pedido</h2>
-				</a>
-			</div>
+		<div class="logo-home"></div>
 
-			<div class="card col home">
-				<a class="item item-text-wrap" ng-click="vm.showProducts(vm.categories[$index])">
-					<h1><i class="ion-ios-folder"></i></h1>
-					<h2>{{vm.categories[$index].title}}</h2>
-				</a>
-			</div>
+		<div style="padding: 20px;">
+			<div class="row colums-two">
 
-		</div>
+				<div class="card col home">
+					<a class="item item-text-wrap" ng-click="vm.showCart()">
+						<h1><i class="ion-gear-b"></i></h1>
+						<h2>Pedido</h2>
+					</a>
+				</div>
 
-		<div class="row">
-			<div class="list card col">
-				<a href="#/app/map" href="" class="item item-icon-left">
-					<i class="icon ion-map"></i>
-					Mapa
-				</a>
+				<div class="card col home">
+					<a class="item item-text-wrap" href="#/app/contact-us">
+						<h1><i class="icon ion-ios-information"></i></h1>
+						<h2>Contato</h2>
+					</a>
+				</div>
 
-				<a href="#/app/contact-us" class="item item-icon-left">
-					<i class="icon ion-ios-information"></i>
-					Contato
-				</a>
 			</div>
 		</div>
+
 	</ion-content>
 </ion-view>

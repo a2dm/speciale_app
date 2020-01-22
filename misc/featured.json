@@ -1,15 +1,15 @@
 {
 	"id": 1,
 	"jsonrpc": "2.0",
-	"total": 5,
+	"total": 3,
 	"result": [
 		{
 			"id": 1,
 			"guid": "861d3f45-28ce-4b10-80e5-e98fafee4da3",
-			"thumb": "https://skounis.s3.amazonaws.com/mobile-apps/restaurant-ionic/_release/assets/cat-placeholder-thumb.png",
-			"title": "Shrimp Rolls",
-			"body": "Donec euismod mattis finibus. In finibus risus vitae tortor varius, eu ornare erat sodales. Nullam ut dignissim mauris.",
-			"tags": ["euismod", "finibus", "ornare"],
+			"thumb": "",
+			"title": "",
+			"body": "",
+			"tags": ["speciali", "paes", "glutem"],
 			"standardOptions":[
 				{
 					"name": "Celery",
@@ -52,15 +52,15 @@
 			}
 			],
 			"pictures": [
-				"https://skounis.s3.amazonaws.com/mobile-apps/restaurant-ionic/_release/assets/cat-placeholder.png"
+				"images/batata-doce-1.jpg"
 			]
 		}, {
 			"id": 2,
 			"guid": "6630fb89-94d6-4fec-a1c3-c48d80b888b2",
-			"thumb": "https://skounis.s3.amazonaws.com/mobile-apps/restaurant-ionic/_release/assets/cat-placeholder-thumb.png",
-			"title": "Chicken and Onion Mix",
-			"body": "Aliquam non augue eget libero vulputate facilisis nec vitae neque.",
-			"tags": ["augue"],
+			"thumb": "",
+			"title": "",
+			"body": "",
+			"tags": ["speciali", "paes", "alimentacao"],
 			"standardOptions":[
 				{
 					"name": "Chicken",
@@ -91,15 +91,15 @@
 			}
 			],
 			"pictures": [
-				"https://skounis.s3.amazonaws.com/mobile-apps/restaurant-ionic/_release/assets/cat-placeholder.png"
+				"images/pao-coco.jpg"
 			]
 		}, {
 			"id": 3,
 			"guid": "861d3f45-28ce-4b10-80e5-e98fafee4dc3",
-			"thumb": "https://skounis.s3.amazonaws.com/mobile-apps/restaurant-ionic/_release/assets/cat-placeholder-thumb.png",
-			"title": "Chocolate and Caramel Cake",
-			"body": "Vestibulum posuere lacinia ante a tristique. Aenean vitae lobortis augue. Vivamus et dolor tempus sapien rhoncus congue. Integer ut suscipit nibh, at luctus velit. Donec ut iaculis dui.",
-			"tags": ["posuere","tristique"],
+			"thumb": "",
+			"title": "",
+			"body": "",
+			"tags": ["speciali", "paes"],
 			"standardOptions":[
 				{
 					"name": "Chocolate syrup",
@@ -130,15 +130,15 @@
 			}
 			],
 			"pictures": [
-				"https://skounis.s3.amazonaws.com/mobile-apps/restaurant-ionic/_release/assets/cat-placeholder.png"
+				"images/mix-graos.jpg"
 			]
 		}, {
 			"id": 4,
 			"guid": "4e0d6228-1ffc-46d4-ba68-22454728ddd5",
-			"thumb": "https://skounis.s3.amazonaws.com/mobile-apps/restaurant-ionic/_release/assets/cat-placeholder-thumb.png",
-			"title": "Crawfish",
-			"body": "Maecenas magna lacus, scelerisque vitae interdum nec, imperdiet bibendum risus. Curabitur et pretium leo, dignissim pellentesque dui.",
-			"tags": ["risus"],
+			"thumb": "",
+			"title": "",
+			"body": "",
+			"tags": ["speciali", "paes"],
 			"standardOptions":[
 				{
 					"name": "Lemon juice",
@@ -168,42 +168,7 @@
 			}
 			],
 			"pictures": [
-				"https://skounis.s3.amazonaws.com/mobile-apps/restaurant-ionic/_release/assets/cat-placeholder.png"
-			]
-		}, {
-			"id": 5,
-			"guid": "9457720m-28ce-4b10-80e5-88ngtw590mcbt",
-			"thumb": "https://skounis.s3.amazonaws.com/mobile-apps/restaurant-ionic/_release/assets/cat-placeholder-thumb.png",
-			"title": "Radish Salad With Herbs",
-			"body": "Mauris blandit odio eu ullamcorper vestibulum. Integer neque tortor, pretium at lectus sit amet, viverra dignissim felis.",
-			"tags": ["blandit", "ullamcorper"],
-			"standardOptions":[
-				{
-					"name": "Onion",
-					"selected": true
-				},
-				{
-					"name": "Lime juice",
-					"selected": true
-				},
-				{
-					"name": "Orange juice",
-					"selected": true
-				},
-				{
-					"name": "Apple cider",
-					"selected": true
-				}
-			],
-			"price" : [
-			{
-				"name": " Standard",
-				"value": "11",
-				"currency": "$"
-			}
-			],
-			"pictures": [
-				"https://skounis.s3.amazonaws.com/mobile-apps/restaurant-ionic/_release/assets/cat-placeholder.png"
+				"images/tranca-prestigio.jpg"
 			]
 		}
 	]

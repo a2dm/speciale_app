@@ -16,12 +16,10 @@ angular.module('restaurant', [
 	'restaurant.restaurant-delivery',
 	'restaurant.categories',
 	'restaurant.products',
-	'restaurant.map',
+	'restaurant.alterar-senha',
 	'restaurant.home',
 	'restaurant.menu',
 	'restaurant.contact-us',
-	'restaurant.favorites',
-	'gMaps'
 ])
 
 .value('_', window._)
