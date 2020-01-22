@@ -13,7 +13,7 @@
 		<!-- endbuild -->
 
 		<!-- build:css styles/main.css -->
-		<link href="styles/main.css" rel="stylesheet">
+		<link href="styles/style.css" rel="stylesheet">
 		<!-- endbuild -->
 
 		<!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
@@ -35,7 +35,6 @@
 		<script src="bower_components/lodash/lodash.js"></script>
 		<script src="bower_components/angular-base64/angular-base64.js"></script>
 		<script src="bower_components/date.format/date.format.js"></script>
-		<script src="bower_components/geolib/dist/geolib.js"></script>
 		<script src="bower_components/ng-cordova-oauth/dist/ng-cordova-oauth.js"></script>
 		<script src="bower_components/ionic-toast/dist/ionic-toast.bundle.min.js"></script>
 		<script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
@@ -46,26 +45,28 @@
 
 		<!-- cordova script (this will be a 404 during development) -->
 		<script src="cordova.js"></script>
-		<script src="lib/ionic.cloud.min.js"></script>
+		<script src="lib/md5.js"></script>
 		<!-- your app's js -->
 		<!-- build:js scripts/scripts.js -->
 		<!-- include: "type": "js", "files": ["scripts/**/*.module.js", "scripts/**/*.js"] -->
+		<script src="scripts/alterar-senha/alterar-senha.module.js"></script>
 		<script src="scripts/cart/restaurant-cart.module.js"></script>
 		<script src="scripts/categories/categories.module.js"></script>
 		<script src="scripts/common/common.module.js"></script>
 		<script src="scripts/contact-us/contact-us.module.js"></script>
 		<script src="scripts/delivery/restaurant-delivery.module.js"></script>
-		<script src="scripts/drupal/drupal.module.js"></script>
 		<script src="scripts/favorites/favorites.module.js"></script>
 		<script src="scripts/home/home.module.js"></script>
 		<script src="scripts/map/map.module.js"></script>
 		<script src="scripts/menu/menu.module.js"></script>
-		<script src="scripts/news/news.module.js"></script>
 		<script src="scripts/products/products.module.js"></script>
-		<script src="scripts/push/push.module.js"></script>
-		<script src="scripts/wordpress/wordpress.module.js"></script>
+		<script src="scripts/alterar-senha/alterar-senha.controller.js"></script>
+		<script src="scripts/alterar-senha/alterar-senha.service.js"></script>
 		<script src="scripts/app.js"></script>
+		<script src="scripts/cart/restaurant-cart-pesquisar.service.js"></script>
 		<script src="scripts/cart/restaurant-cart.service.js"></script>
+		<script src="scripts/cart/restaurant-cart/restaurant-cart-opt.controller.js"></script>
+		<script src="scripts/cart/restaurant-cart/restaurant-cart-pesquisar.controller.js"></script>
 		<script src="scripts/cart/restaurant-cart/restaurant-cart.controller.js"></script>
 		<script src="scripts/categories/categories.controller.js"></script>
 		<script src="scripts/categories/categories.service.js"></script>
@@ -88,32 +89,22 @@
 		<script src="scripts/delivery/restaurant-info.service.js"></script>
 		<script src="scripts/delivery/restaurant-order-processor.js"></script>
 		<script src="scripts/delivery/take-away/take-away.controller.js"></script>
-		<script src="scripts/drupal/drupal-article.controller.js"></script>
-		<script src="scripts/drupal/drupal-articles.controller.js"></script>
-		<script src="scripts/drupal/drupal.service.js"></script>
 		<script src="scripts/favorites/favorites-sender.sevice.js"></script>
 		<script src="scripts/favorites/favorites.controller.js"></script>
 		<script src="scripts/favorites/favorites.service.js"></script>
 		<script src="scripts/home/home.controller.js"></script>
 		<script src="scripts/home/home.service.js"></script>
+		<script src="scripts/home/login.controller.js"></script>
+		<script src="scripts/home/login.service.js"></script>
 		<script src="scripts/internet-connectivity.js"></script>
 		<script src="scripts/map/map.controller.js"></script>
 		<script src="scripts/map/map.service.js"></script>
 		<script src="scripts/menu/menu.controller.js"></script>
 		<script src="scripts/menu/menu.service.js"></script>
-		<script src="scripts/news/article.controller.js"></script>
-		<script src="scripts/news/articles.controller.js"></script>
-		<script src="scripts/news/news.service.js"></script>
 		<script src="scripts/products/product.controller.js"></script>
 		<script src="scripts/products/products.controller.js"></script>
 		<script src="scripts/products/products.service.js"></script>
-		<script src="scripts/push/push-sender.service.js"></script>
-		<script src="scripts/push/push-token.service.js"></script>
-		<script src="scripts/push/push.controller.js"></script>
 		<script src="scripts/spinner.js"></script>
-		<script src="scripts/wordpress/wordpress-article.controller.js"></script>
-		<script src="scripts/wordpress/wordpress-articles.controller.js"></script>
-		<script src="scripts/wordpress/wordpress.service.js"></script>
 		<!-- /include -->
 		<!-- endbuild -->
 	</head>

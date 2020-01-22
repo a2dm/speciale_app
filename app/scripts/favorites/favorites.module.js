@@ -3,8 +3,7 @@
 
 	angular
 		.module('restaurant.favorites', [
-			'ionic',
-			'LocalStorageModule'
+			'ionic'
 		])
 		.config(function($stateProvider) {
 			$stateProvider
@@ -15,7 +14,8 @@
 							templateUrl: 'scripts/favorites/favorites.html',
 							controller: 'FavoritesController as vm'
 						}
-					}
+					},
+					cache: false
 				});
 		});
 })();

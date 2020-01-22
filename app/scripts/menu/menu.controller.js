@@ -5,10 +5,11 @@
 		.module('restaurant.menu')
 		.controller('MenuController', MenuController);
 
-	MenuController.$inject = ['categories'];
+	MenuController.$inject = ['categories', 'localStorageService'];
 
 	/* @ngInject */
-	function MenuController(categories) {
+	function MenuController(categories, localStorageService) {
+
 		var vm = angular.extend(this, {
 			categories: categories
 		});

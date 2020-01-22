@@ -5,50 +5,52 @@
 		.module('restaurant.favorites')
 		.controller('FavoritesController', FavoritesController);
 
-	FavoritesController.$inject = ['$state', 'favoritesService', 'favoritesSenderService'];
+	FavoritesController.$inject = ['$state', 'favoritesService', 'favoritesSenderService', 'localStorageService', 'restaurantCartService'];
 
 	/* @ngInject */
-	function FavoritesController($state, favoritesService, favoritesSenderService) {
-		var businessInfo;
+	function FavoritesController($state, favoritesService, favoritesSenderService, localStorageService, restaurantCartService) {
 		var vm = angular.extend(this, {
+			lengthCart: restaurantCartService.lengthCart(),
 			items: [],
 			deleteItem: deleteItem,
 			sendFavorites: sendFavorites,
-			showProductDetails: showProductDetails
+			showProductDetails: showProductDetails,
+			showCart: showCart
 		});
 
 		(function activate() {
 			loadItems();
-			loadBusinessInfo();
 		})();
 
 		// ********************************************************************
 
-		function loadBusinessInfo() {
-			favoritesService.getBusiness()
-				.then(function(business) {
-					businessInfo = business;
-				});
+		function showCart() {
+			$state.go('app.restaurant-cart');
 		}
 
 		function loadItems() {
-			vm.items = favoritesService.getAll();
+			return favoritesService.getAll(localStorageService.get('usuarioAutenticado').idCliente).then(function(data) {
+				vm.items = data;
+			});
 		}
 
-		function deleteItem(item) {
-			favoritesService.deleteItem(item.guid);
-			loadItems();
+		function deleteItem(index, idProduto) {
+			favoritesService.deleteItem(localStorageService.get('usuarioAutenticado').idCliente, 
+				                        idProduto,
+				                        localStorageService.get('usuarioAutenticado').idUsuario);
+			vm.items.splice(index,1);
 		}
 
 		function sendFavorites() {
-			debugger;
-			favoritesSenderService.sendFavorites(businessInfo.email, vm.items);
+			favoritesSenderService.sendFavorites(localStorageService.get('usuarioAutenticado').idCliente, 
+				                        		 item.id,
+				                                 localStorageService.get('usuarioAutenticado').idUsuario);
 		}
 
-		function showProductDetails(product) {
+		function showProductDetails(productId) {
 			$state.go('app.product', {
-				productId: product.guid,
-				categoryId: product.categoryId
+				productId: productId,
+				clienteId: localStorageService.get('usuarioAutenticado').idCliente
 			});
 		}
 	}

@@ -62,19 +62,13 @@ module.exports = function (grunt) {
 					ENV: {
 						name: 'development',
 
-						// LOCAL or REMOTE or FIREBASE
-						dataProvider: 'FIREBASE',
-						firebaseConfig: {
-							apiKey: "AIzaSyBrdY5tKX1_oIfLiN8O8VCSViCpjchnBG0",
-							authDomain: "restaurant-backend-bd335.firebaseapp.com",
-							databaseURL: "https://restaurant-backend-bd335.firebaseio.com"
-						},
-
 						youtubeKey: 'AIzaSyDael5MmCQa1GKQNKQYypmBeB08GATgSEo',
 						ionicCloudApiToken: '', // https://apps.ionic.io/app/
 						ionicSecurityProfile: '', // https://apps.ionic.io/app/
 						ionicAppId: 'ab64f538', //'2113c758',
-						gcmId: '228071472080' // Google Developers Console
+						gcmId: '228071472080', // Google Developers Console
+						// LOCAL or REMOTE
+						dataProvider: 'LOCAL'
 					}
 				}
 			},
@@ -305,7 +299,10 @@ module.exports = function (grunt) {
 					expand: true,
 					flatten: true,
 					dest: 'www/lib',
-					src: 'node_modules/@ionic/cloud/dist/bundle/ionic.cloud.min.js'
+					src: [
+						'node_modules/@ionic/cloud/dist/bundle/ionic.cloud.min.js',
+						'lib/md5.js'
+					]
 				}]
 			},
 			styles: {
@@ -357,19 +354,19 @@ module.exports = function (grunt) {
 				}
 			},
 			server: [
-				'sass:dist',
+				// 'sass:dist',
 				'copy:styles',
 				'copy:vendor',
 				'copy:fonts'
 			],
 			test: [
-				'sass:dist',
+				// 'sass:dist',
 				'copy:styles',
 				'copy:vendor',
 				'copy:fonts'
 			],
 			dist: [
-				'sass:dist',
+				// 'sass:dist',
 				'copy:styles',
 				'copy:vendor',
 				'copy:fonts'

@@ -1,0 +1,45 @@
+<ion-view view-title="Login" hide-nav-bar="true">
+   <form novalidate name="formulario">
+         <ion-content class="padding" style="background: url('/images/fundo.png')">
+
+            <div style="width: 100%; text-align: center;">
+                <img ng-src="images/logo-speciale-new3.png" alt="" width="70%">
+            </div>
+
+            <div align="center">
+                Realize o login para utilizar o nosso aplicativo
+            </div>
+            
+            <ion-list>
+                <ion-item class="item-input item-stacked-label">
+                    
+                   <input type="text" placeholder="  Login" ng-model="login" name="login" required style="width: 95%">
+                    <p ng-show="formulario.login.$error.required && formulario.login.$dirty" 
+                    class="error-message">
+                        O campo Login é obrigatório
+                    </p>
+                </ion-item>
+
+                <ion-item class="item-input item-stacked-label">
+                   <input type="password" placeholder="  Senha" ng-model="senha" name="senha" required style="width: 95%">
+                   <p ng-show="formulario.senha.$error.required && formulario.senha.$dirty" 
+                    class="error-message">
+                        O campo Senha é obrigatório
+                    </p>
+                </ion-item>
+
+                <br />
+
+                <ion-item nav-clear menu-close class="item-icon-left" ng-click="vm.openRecuperarSenhaModal()">
+                    <i class="icon ion-android-lock"></i>
+                    Recuperar Senha
+                </ion-item>
+            </ion-list>
+         </ion-content>
+       
+         <div class="bar bar-footer bar-calm" ng-click="vm.entrar(formulario)">
+            <div class="title">Entrar</div>
+        </div>
+    </form>
+</ion-view>
+

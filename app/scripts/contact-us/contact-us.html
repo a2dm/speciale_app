@@ -1,72 +1,64 @@
-<ion-view view-title="Contact us">
+<ion-view view-title="Contato">
 	<ion-content>
 		<div class="home-hello">
-			<ion-slide-box show-pager="false">
+			<ion-slide-box show-pager="false" style="text-align: center;">
 				<ion-slide ng-repeat="i in [1,2,3,4,5]">
-					<div class="box blue"><img ng-src="http://lorempixel.com/1024/768/?q={{i}}"/></div>
+					<div class="box blue"><img ng-src="images/logo-speciale-new3.png" style="padding: 20px"/></div>
 				</ion-slide>
 			</ion-slide-box>
-
-			<div class="item item-text-wrap">
-				<h1>{{vm.storeName}}</h1>
-				{{vm.address}}
-			</div>
 		</div>
 
 		<div class="content-horizontal-padding">
-			<h3>About us</h3>
-			<p>{{vm.desc}}</p>
+			<h3>Sobre</h3>
+			<p style="background-color: white; padding: 5px; text-align: justify;">Com afeto e muito carinho! Para nós, não é só uma expressão, mas tudo aquilo que torna #SeuMomentoSpeciale. A Speciale nasceu há 04 anos com a missão de produzir Pães Artesanais em Fortaleza. Trabalhamos com que existe de melhor em relação a ingredientes, selecionados cuidadosamente para agradar aos mais sofisticados paladares e também são a garantia da qualidade de nossos produtos, proporcionando sabor e maciez inconfundíveis.
+			</p>
 		</div>
 
-		<h3 class="content-horizontal-padding">Open Hours</h3>
+		<h3 class="content-horizontal-padding">Horário de Funcionamento</h3>
 		<div class="list list-inset">
-			<label class="item item-input item-stacked-label" ng-repeat="day in vm.openHours">
-				<span class="input-label">{{day.name}}</span>
-				<span class="data">{{day.times.join(" / ")}}</span>
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Segunda a Sexta</span>
+				<span class="data">08:00h às 18:00h</span>
+			</label>
+
+			<label class="item item-input item-stacked-label">
+				<span class="input-label">Sábado</span>
+				<span class="data">08:00h às 17:00h</span>
 			</label>
 		</div>
 
-		<h3 class="content-horizontal-padding">Get in touch</h3>
+		<h3 class="content-horizontal-padding">Entre em contato</h3>
 		<div class="list card">
-			<a href="tel:{{vm.phoneNumber}}" class="item item-icon-left">
+			<a href="tel:30878679" class="item item-icon-left">
 				<i class="icon ion-ios-telephone"></i>
-				Call us
+				Ligue agora
 			</a>
 
 			<a class="item item-icon-left" ng-click="vm.sendEmail()">
 				<i class="icon ion-email"></i>
-				Send us and Email
+				Envie um e-mail
 			</a>
 
 			<a href="#" class="item item-icon-left" ng-click="vm.getDirections()">
 				<i class="icon ion-compass"></i>
-				Find us / Get directions
+				Encontre-nos
 			</a>
 		</div>
 
-		<h4 class="content-horizontal-padding">Get social with us</h4>
-
+		<h3 class="content-horizontal-padding">Redes Sociais</h3>
 		<div class="list card">
 			<a ng-click="vm.openFacebookPage()" class="item item-icon-left">
 				<i class="icon ion-social-facebook"></i>
-				Visit us on Facebook
+				Curta o nosso Facebook
 			</a>
 
 			<a ng-click="vm.openInstagramPage()" class="item item-icon-left">
 				<i class="icon ion-social-instagram-outline"></i>
-				Follow us on Instagram
-			</a>
-
-			<a ng-click="vm.openTwitterPage()" class="item item-icon-left">
-				<i class="icon ion-social-twitter"></i>
-				Follow us on Twitter
-			</a>
-
-			<a ng-click="vm.openPinterestPage()" class="item item-icon-left">
-				<i class="icon ion-social-pinterest"></i>
-				Follow us on Pinterest
+				Siga o nosso Instagram
 			</a>
 		</div>
+
+		<br/>
 
 	</ion-content>
 </ion-view>

@@ -12,7 +12,10 @@
 		var service = {
 			all: all,
 			get: get,
-			getFeatured: getFeatured
+			getFeatured: getFeatured,
+			getListProductByClient: getListProductByClient,
+			cadastrarPedido: cadastrarPedido,
+			validarData: validarData
 		};
 		return service;
 
@@ -22,12 +25,24 @@
 			return dataService.getProducts(categoryGuid);
 		}
 
-		function get(categoryGuid, productGuid) {
-			return dataService.getProduct(categoryGuid, productGuid);
+		function get(productGuid, clientGuid) {
+			return dataService.getProduct(productGuid, clientGuid);
 		}
 
 		function getFeatured(productGuid) {
 			return dataService.getFeaturedProduct(productGuid);
+		}
+
+		function getListProductByClient(clientGuid) {
+			return dataService.getListProductByClient(clientGuid);
+		}
+
+		function cadastrarPedido(idCliente, idUsuario, idPedido, dataPedido, observacao, listaProduto) {
+			return dataService.cadastrarPedido(idCliente, idUsuario, idPedido, dataPedido, observacao, listaProduto);
+		}
+
+		function validarData(idCliente, idPedido, dataPedido) {
+			return dataService.validarData(idCliente, idPedido, dataPedido);
 		}
 	}
 })();

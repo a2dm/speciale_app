@@ -1,34 +1,63 @@
 <ion-view view-title="{{vm.category}}">
 	<ion-nav-buttons side="right">
-		<button class="button button-clear icon ion-ios-cart" ng-click="vm.showCart()"></button>
+		<button class="button button-clear icon ion-ios-cart" ng-click="vm.showCart()">
+			<span class="badge badge-info" style="display: -webkit-inline-box; float: right">{{vm.lengthCart}} </span>
+		</button>
 	</ion-nav-buttons>
 
 	<ion-content>
 		<div ng-repeat="p in vm.products" ng-if="$index%2 == 0" class="row colums-two">
-			<div class="card col" ng-click="vm.showProductDetails(vm.products[$index].guid)">
-				<div class="item item-image">
-					<img ng-src="{{vm.products[$index].thumb}}">
-				</div>
-
-				<a class="item">
-					<h3>{{vm.products[$index].title}}</h3>
-					<h4>{{vm.products[$index].price[0].value | currency : vm.products[$index].price[0].currency : 2}}</h4>
+			<div class="card col" ng-click="vm.showProductDetails(vm.products[$index].idProduto)">
+				<a>
+					<h6 style="text-align: center">{{vm.products[$index].desProduto}}</h6>
 				</a>
 			</div>
 
 			<div ng-style="{'visibility': !!vm.products[$index + 1] ? 'visible' : 'hidden'}" class="card col"
-				ng-click="vm.showProductDetails(vm.products[$index + 1].guid)">
-				<div class="item item-image">
-					<img ng-src="{{vm.products[$index + 1].thumb}}">
-				</div>
-
-				<a class="item">
-					<h3>{{vm.products[$index + 1].title}}</h3>
-					<h4>{{vm.products[$index + 1].price[0].value | currency : vm.products[$index + 1].price[0].currency : 2}}</h4>
+				ng-click="vm.showProductDetails(vm.products[$index + 1].idProduto)">
+				<a>
+					<h6 style="text-align: center">{{vm.products[$index + 1].desProduto}}</h6>
 				</a>
 			</div>
-
 		</div>
 
+		<style>
+			.badge {
+			  padding: 1px 9px 2px;
+			  font-size: 12.025px;
+			  font-weight: bold;
+			  white-space: nowrap;
+			  color: #ffffff;
+			  background-color: #999999;
+			  -webkit-border-radius: 9px;
+			  -moz-border-radius: 9px;
+			  border-radius: 9px;
+			}
+			
+			.badge-warning {
+			  background-color: #f89406;
+			}
+			.badge-warning:hover {
+			  background-color: #c67605;
+			}
+			.badge-success {
+			  background-color: #468847;
+			}
+			.badge-success:hover {
+			  background-color: #356635;
+			}
+			.badge-info {
+			  background-color: #3a87ad;
+			}
+			.badge-info:hover {
+			  background-color: #2d6987;
+			}
+			.badge-inverse {
+			  background-color: #333333;
+			}
+			.badge-inverse:hover {
+			  background-color: #1a1a1a;
+			}
+		</style>
 	</ion-content>
 </ion-view>

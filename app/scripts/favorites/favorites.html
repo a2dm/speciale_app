@@ -1,33 +1,67 @@
-<ion-view view-title="Favorites">
+<ion-view view-title="Favoritos">
+	
 	<ion-nav-buttons side="right">
-		<button class="button button-clear icon ion-paper-airplane"
-			ng-click="vm.sendFavorites()"
-			ng-disabled="vm.items.length === 0"></button>
+		<button class="button button-clear icon ion-ios-cart" ng-click="vm.showCart()">
+			<span class="badge badge-info" style="display: -webkit-inline-box; float: right">{{vm.lengthCart}} </span>
+		</button>
 	</ion-nav-buttons>
 
 	<ion-content has-header="true" class="has-extended-footer">
 		<ion-list can-swipe="true" ng-if="vm.items.length > 0">
-			<ion-item ng-repeat="item in vm.items" class="item-thumbnail-left item-text-wrap" ng-click="vm.showProductDetails(item)">
-				<img ng-src="{{item.thumb}}" />
-				<h2>{{item.name}}</h2>
-				<p>{{item.description | limitTo: 80 }}{{item.description.length > 80 ? '...' : ''}}</p>
+			<ion-item ng-repeat="item in vm.items" ng-click="vm.showProductDetails(item.idProduto)">
+				<h2>{{item.desProduto}}</h2>
 
-				<ion-option-button class="button-assertive" ng-click="vm.deleteItem(item)">
+				<ion-option-button class="button-assertive" ng-click="vm.deleteItem($index, item.idProduto)">
 					Delete
 				</ion-option-button>
 			</ion-item>
 		</ion-list>
 
-		<h3 style="text-align: center;" ng-if="vm.items.length === 0">No favorite items</h3>
+		<h3 style="text-align: center;" ng-if="vm.items.length === 0">Lista de Favoritos está vazia</h3>
+
+		<style>
+			.badge {
+			  padding: 1px 9px 2px;
+			  font-size: 12.025px;
+			  font-weight: bold;
+			  white-space: nowrap;
+			  color: #ffffff;
+			  background-color: #999999;
+			  -webkit-border-radius: 9px;
+			  -moz-border-radius: 9px;
+			  border-radius: 9px;
+			}
+			
+			.badge-warning {
+			  background-color: #f89406;
+			}
+			.badge-warning:hover {
+			  background-color: #c67605;
+			}
+			.badge-success {
+			  background-color: #468847;
+			}
+			.badge-success:hover {
+			  background-color: #356635;
+			}
+			.badge-info {
+			  background-color: #3a87ad;
+			}
+			.badge-info:hover {
+			  background-color: #2d6987;
+			}
+			.badge-inverse {
+			  background-color: #333333;
+			}
+			.badge-inverse:hover {
+			  background-color: #1a1a1a;
+			}
+		</style>
 	</ion-content>
 
-	<div class="bar bar-footer bar-stable extended-footer" ng-click="vm.sendFavorites()" ng-if="vm.items.length > 0">
+	<div class="bar bar-footer bar-stable extended-footer" ng-if="vm.items.length > 0">
 		<div>
-			<div class="title">
-				<i class="icon ion-paper-airplane"></i>
-				Ask a question
-			</div>
-			<div class="subtitle">Swipe to the left to remove</div>
+			<div class="subtitle">Dezlize para a esquerda para deletar</div>
 		</div>
 	</div>
 </ion-view>

@@ -1,36 +1,101 @@
-<ion-view view-title="Restaurant cart" cache-view="false">
-	<ion-content class="has-extended-footer">
-		<ion-list can-swipe="true">
-			<ion-item ng-repeat="item in vm.items" class="item-thumbnail-left item-text-wrap">
-				<img ng-src="{{item.picture}}" />
-				<h2>{{item.name}}</h2>
-				<p>{{item.description | limitTo: 80 }}{{item.description.length > 80 ? '...' : ''}}</p>
-				<p class="text-right">{{item.price | currency : item.currency : 2 }} x {{item.quantity}} {{item.size}}</p>
+<ion-view view-title="Pedido">
+	<ion-nav-buttons side="right">
+		<button class="button button-clear icon ion-gear-b" ng-click="vm.showOptions()"></button>		
+		<button class="button button-clear icon ion-folder" ui-sref="app.products({categoryId: category.categoryId, categoryName: category.title})"></button>
+		<button class="button button-clear icon ion-ios-star" ng-click="vm.showFavoritos()"></button>		
+	</ion-nav-buttons>
 
-				<p class="text-right" ng-repeat="option in item.options" style="font-style: italic;">
-					{{option.name}}: {{option.value | currency : item.currency : 2 }}
-				</p>
+	<form novalidate name="deliveryForm">
+		<ion-content class="has-extended-footer">
+			<ion-list>
+				<ion-item class="item-input item-stacked-label">
+					<input type="hidden" ng-model="vm.data.idPedido" name="idPedido"/>
+					<span class="input-label">Data da Produção *</span>
+					<input type="date"
+						name="dataPedido"
+						ng-model="vm.data.dataPedido"
+						required
+						style="width: 150px" />
+					<p ng-show="deliveryForm.dataPedido.$error.required && deliveryForm.dataPedido.$dirty" 
+					class="error-message">
+						O campo Data da Produção é obrigatório
+					</p>
+				</ion-item>
 
-				<p class="text-right" style="font-weight: 500;">
-					Total: {{vm.getItemTotal(item) | currency : item.currency : 2 }}
-				</p>
+				<ion-item class="item-input item-stacked-label">
+					<span class="input-label">Observação</span>
+					<textarea rows="6"
+						ng-model="vm.data.notes"
+						name="notes"></textarea>
+				</ion-item>
 
-				<ion-option-button class="button-balanced" ng-click="vm.changeQuantity(item)">
-					Change quantity
-				</ion-option-button>
-				<ion-option-button class="button-assertive" ng-click="vm.deleteItem(item)">
-					Delete
-				</ion-option-button>
-			</ion-item>
-		</ion-list>
-	</ion-content>
-	<div class="bar bar-footer bar-calm extended-footer" ng-click="vm.proceedToPayment()">
-		<div ng-if="vm.currency">
-			<div class="title">Proceed to payment</div>
-			<div class="subtitle">Total: {{vm.total | currency : vm.currency : 2 }}</div>
+				<div style="text-align: center;" ng-if="vm.items.length == 0">
+					<div class="subtitle">Clique em <i class="ion ion-folder"></i> para adicionar um produto</div>
+				</div>
+			</ion-list>
+
+			<ion-list can-swipe="true">
+				<ion-item ng-repeat="item in vm.items">
+					
+					<p class="text-right"><span class="badge badge-warning">{{item.quantity}}</span></p><br/>
+					<h2 class="text-left"><strong>{{item.name}}</strong></h2>
+					
+					<ion-option-button class="button-balanced" ng-click="vm.changeQuantity(item)">
+						Alterar
+					</ion-option-button>
+					<ion-option-button class="button-assertive" ng-click="vm.deleteItem(item)">
+						Deletar
+					</ion-option-button>
+				</ion-item>
+			</ion-list>
+
+			<style>
+				.item-input input, .item-input textarea {
+					width: 95%;
+				}
+
+				.badge {
+				  padding: 1px 9px 2px;
+				  font-size: 12.025px;
+				  font-weight: bold;
+				  white-space: nowrap;
+				  color: #ffffff;
+				  background-color: #999999;
+				  -webkit-border-radius: 9px;
+				  -moz-border-radius: 9px;
+				  border-radius: 9px;
+				}
+				
+				.badge-warning {
+				  background-color: #f89406;
+				}
+				.badge-warning:hover {
+				  background-color: #c67605;
+				}
+				.badge-success {
+				  background-color: #468847;
+				}
+				.badge-success:hover {
+				  background-color: #356635;
+				}
+				.badge-info {
+				  background-color: #3a87ad;
+				}
+				.badge-info:hover {
+				  background-color: #2d6987;
+				}
+				.badge-inverse {
+				  background-color: #333333;
+				}
+				.badge-inverse:hover {
+				  background-color: #1a1a1a;
+				}
+			</style>
+		</ion-content>
+
+	
+		<div class="bar bar-footer bar-calm" ng-click="vm.confirm(deliveryForm)">
+			<div class="title">Confirmar</div>
 		</div>
-		<div ng-if="!vm.currency" class="title">
-			Cart is empty
-		</div>
-	</div>
+	</form>
 </ion-view>

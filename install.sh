@@ -43,3 +43,7 @@ grunt platform:add:ios
 # Build the  project and generate the cordova directory (www)
 #
 grunt build
+
+# NOVOS COMANDOS
+
+nvm install 6.17.1

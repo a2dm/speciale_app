@@ -15,7 +15,31 @@
 							templateUrl: 'scripts/cart/restaurant-cart/restaurant-cart.html',
 							controller: 'RestaurantCartController as vm'
 						}
-					}
+					},
+					cache: false
+				})
+				
+				.state('app.restaurant-cart-opt', {
+					url: '/restaurant-cart-opt',
+					views: {
+						'menuContent': {
+							templateUrl: 'scripts/cart/restaurant-cart/restaurant-cart-opt.html',
+							controller: 'RestaurantCartOptController as vm'
+						}
+					},
+					cache: false
+				})
+
+				.state('app.restaurant-cart-pesquisar', {
+					url: '/restaurant-cart-pesquisar',
+					views: {
+						'menuContent': {
+							templateUrl: 'scripts/cart/restaurant-cart/restaurant-cart-pesquisar.html',
+							controller: 'RestaurantCartPesquisarController as vm'
+						}
+					},
+					cache: false
 				});
+
 		});
 })();

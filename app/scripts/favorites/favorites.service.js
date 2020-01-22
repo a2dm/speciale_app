@@ -22,24 +22,26 @@
 
 		// ********************************************************
 
-		function deleteItem(guid) {
-			_.remove(items, function(item) {
-				return item.guid === guid;
+		function deleteItem(idCliente, idProduto, idUsuario) {
+			return dataService.excluirFavorito(idCliente, idProduto, idUsuario).then(function(data) {
+				return data;
 			});
-			localStorageService.set('favorites', items);
 		}
 
-		function getAll() {
-			return items;
+		function getAll(idCliente) {
+			return dataService.listarFavoritoByCliente(idCliente).then(function(data) {
+				return data;
+			});
 		}
 
-		function addItem(favoriteItem) {
-			items.push(favoriteItem);
-			localStorageService.set('favorites', items);
+		function addItem(idCliente, idProduto, idUsuario) {
+			return dataService.adicionarFavorito(idCliente, idProduto, idUsuario).then(function(data) {
+				return data;
+			});
 		}
 
 		function isInFavorites(guid) {
-			return _.some(items, 'guid', guid);
+			return _.some(items, 'id', guid);
 		}
 	}
 })();

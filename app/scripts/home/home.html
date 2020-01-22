@@ -1,34 +1,33 @@
-<ion-view view-title="Home">
+<ion-view view-title="Início">
+	<ion-nav-buttons side="left">
+		<button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+		</button>
+	</ion-nav-buttons>
+	<ion-nav-buttons side="right">
+		<button class="button button-clear icon ion-android-person" ng-click="vm.openProfile()">
+			{{vm.login | uppercase}}
+		</button>
+	</ion-nav-buttons>
+	
 	<ion-content>
-		<ion-slide-box>
-			<ion-slide ng-repeat="product in vm.products">
-				<div class="box blue home-hello" ng-click="vm.showProductDetails(product)">
-					<img ng-src="{{product.pictures[0]}}"/>
-					<div class="item">
-						<h2>{{product.title}}</h2>
-					</div>
-				</div>
-			</ion-slide>
-		</ion-slide-box>
 
-		<!--
-		 | http://stackoverflow.com/questions/27239735/ionic-framwork-gridlayout-with-multiple-rows-and-column-on-which-buttons-placed
-		 | http://stackoverflow.com/questions/23779773/angularjs-loops-and-formatting/23780288#23780288
-		 -->
-		<h1 class="padding-left padding-right">{{vm.storeName}}</h1>
-		<div ng-repeat="e in vm.categories" ng-if="$index%2==0" class="row colums-two">
+		<div class="box blue home-hello" style="text-align: center; padding-top: 10px">
+			<img ng-src="{{vm.products[0].pictures[0]}}" style="max-width: 80%;" />
+		</div>
+		
+		<div ng-repeat="e in vm.categories" class="row colums-two">
 
 			<div class="card col home">
-				<a class="item item-text-wrap" ng-click="vm.showProducts(vm.categories[$index])"">
-					<h1><i class="{{vm.categories[$index].icon}}"></i></h1>
-					<h2>{{vm.categories[$index].title}}</h2>
+				<a class="item item-text-wrap" ng-click="vm.showCart()">
+					<h1><i class="ion-gear-b"></i></h1>
+					<h2>Pedido</h2>
 				</a>
 			</div>
 
-			<div class="card col home" ng-if="!!vm.categories[$index + 1]">
-				<a class="item item-text-wrap" ng-click="vm.showProducts(vm.categories[$index + 1])">
-					<h1><i class="{{vm.categories[$index + 1].icon}}"></i></h1>
-					<h2>{{vm.categories[$index + 1].title}}</h2>
+			<div class="card col home">
+				<a class="item item-text-wrap" ng-click="vm.showProducts(vm.categories[$index])">
+					<h1><i class="ion-ios-folder"></i></h1>
+					<h2>{{vm.categories[$index].title}}</h2>
 				</a>
 			</div>
 
@@ -38,16 +37,14 @@
 			<div class="list card col">
 				<a href="#/app/map" href="" class="item item-icon-left">
 					<i class="icon ion-map"></i>
-					Map
+					Mapa
 				</a>
 
 				<a href="#/app/contact-us" class="item item-icon-left">
 					<i class="icon ion-ios-information"></i>
-					Contact us
+					Contato
 				</a>
 			</div>
 		</div>
-
-
 	</ion-content>
 </ion-view>

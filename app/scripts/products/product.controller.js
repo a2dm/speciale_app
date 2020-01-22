@@ -7,47 +7,52 @@
 
 	ProductController.$inject = [
 		'$scope', '$stateParams', '$state', 'product', 'favoritesService',
-		'ionicToast', 'restaurantCartService', '_'];
+		'ionicToast', 'restaurantCartService', '_', 'localStorageService', '$ionicHistory'];
 
 	/* @ngInject */
 	function ProductController($scope, $stateParams, $state, product, favoritesService,
-	                           ionicToast, restaurantCartService, _) {
+	                           ionicToast, restaurantCartService, _, localStorageService, $ionicHistory) {
 
+		$ionicHistory.removeBackView();
 		var categoryId = $stateParams.categoryId;
-		product = _.clone(product);
 
 		var vm = angular.extend(this, {
+			lengthCart: restaurantCartService.lengthCart(),
 			product: product,
-			selectedPrice: product.price[0],
 			addToCart: addToCart,
 			quickAddToCart: quickAddToCart,
-			isInFavorites: favoritesService.isInFavorites(product.guid),
+			isInFavorites: isInFavorites,
 			showCart: showCart,
 			toggleFavorites: toggleFavorites,
 			hasStandardOptions: false,
-			hasExtraOptions: false
+			hasExtraOptions: false,
+			showFavoritos: showFavoritos
 		});
 
 		(function activate() {
 			$scope.$on('$ionicView.enter', function() {
 				if (vm.product) {
-					vm.isInFavorites = favoritesService.isInFavorites(vm.product.guid);
-				}
-				if (vm.product.standardOptions && vm.product.standardOptions.length > 0) {
-					return $scope.hasStandardOptions = true;
-				}
-				if (vm.product.extraOptions && vm.product.extraOptions.length > 0) {
-					return $scope.hasExtraOptions = true;
+					isInFavorites();
 				}
 			});
 		})();
 
 		// **********************************************
 
+		function isInFavorites() {
+			vm.isInFavorites = false;
+			if (vm.product.flgFavorito == 'S') {
+				vm.isInFavorites = true;
+			}
+		}
+
+		function showFavoritos() {
+			$state.go('app.favorites');
+		}
+
 		function quickAddToCart() {
 			addToCart(1);
-			ionicToast.show('\'' + vm.product.title +
-				'\' has been added to the cart', 'bottom', false, 2000);
+			ionicToast.show('O produto ' + vm.product.desProduto + ' foi adicionado no pedido.', 'bottom', false, 5000);
 		}
 
 		function showCart() {
@@ -55,15 +60,19 @@
 		}
 
 		function addToCart(quantity) {
+			var quantidadeAnterior = restaurantCartService.lengthCart();
 			restaurantCartService.addToCart({
 				quantity: quantity,
-				name: vm.product.title,
-				price: vm.selectedPrice.value,
-				currency: vm.selectedPrice.currency,
-				size: vm.selectedPrice.name,
-				picture: vm.product.pictures[0],
-				description: vm.product.body,
-				options: getSelectedOptions(vm.product.standardOptions).concat(getSelectedOptions(vm.product.extraOptions)),
+				name: vm.product.desProduto,
+				idProduto: vm.product.idProduto,
+				qtdLoteMinimo: vm.product.qtdLoteMinimo,
+				qtdMultiplo: vm.product.qtdMultiplo
+			}).then(function(data) {
+				vm.lengthCart = data;
+
+				if (quantidadeAnterior != data) {
+					$state.go('app.restaurant-cart');
+				}
 			});
 		}
 
@@ -82,20 +91,16 @@
 
 		function toggleFavorites() {
 			if (vm.isInFavorites) {
-				favoritesService.deleteItem(vm.product.guid);
-				ionicToast.show('\'' + vm.product.title +
-					'\' has been removed from your Favorites', 'bottom', false, 2000);
+				favoritesService.deleteItem(localStorageService.get('usuarioAutenticado').idCliente,
+						                    vm.product.idProduto,
+						                    localStorageService.get('usuarioAutenticado').idUsuario);
+				ionicToast.show('O produto ' + vm.product.desProduto + ' foi removido dos favoritos.', 'bottom', false, 5000);
 
 			} else {
-				favoritesService.addItem({
-					guid: vm.product.guid,
-					categoryId: categoryId,
-					thumb: vm.product.thumb,
-					name: vm.product.title,
-					description: vm.product.body
-				});
-				ionicToast.show('\'' + vm.product.title +
-					'\' has been added to your Favorites', 'bottom', false, 2000);
+				favoritesService.addItem(localStorageService.get('usuarioAutenticado').idCliente,
+					                     vm.product.idProduto,
+					                     localStorageService.get('usuarioAutenticado').idUsuario);
+				ionicToast.show('O produto ' + vm.product.desProduto + ' foi adicionado nos favoritos.', 'bottom', false, 5000);
 			}
 			vm.isInFavorites = !vm.isInFavorites;
 		}

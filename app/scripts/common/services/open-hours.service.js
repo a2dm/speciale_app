@@ -9,37 +9,37 @@
 
 	/* @ngInject */
 	function openHoursService(_) {
-		var dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+		var dayNames = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
 
 		// Use the converter
 		// http://www.ruddwire.com/handy-code/date-to-millisecond-calculators/#.VWQfnVmqpBd
 		var openHours = {
 			days: [{
 				'day': 1, // Monday
-				'openAt': 1420095600000, // 9:00
-				'closeAt': 1420124400000, // 17:00
+				'openAt': 1501066800000, // 8:00
+				'closeAt': 1501102800000, // 18:00
 			}, {
 				'day': 2, // Tuesday
-				'openAt': 1420095600000, // 9:00
-				'closeAt': 1420110000000, // 13:00
-			}, {
-				'day': 2, // Tuesday
-				'openAt': 1420124400000, // 17:00
-				'closeAt': 1420138800000, // 21:00
+				'openAt': 1501066800000, // 8:00
+				'closeAt': 1501102800000, // 18:00
 			}, {
 				'day': 3, // Wednesday
-				'openAt': 1420095600000, // 9:00
-				'closeAt': 1420124400000, // 17:00
+				'openAt': 1501066800000, // 8:00
+				'closeAt': 1501102800000, // 18:00
 			}, {
 				'day': 4, // Thursday
-				'openAt': 1420095600000, // 9:00
-				'closeAt': 1420126300000, // 17:00
+				'openAt': 1501066800000, // 8:00
+				'closeAt': 1501102800000, // 18:00
 
 			}, {
 				'day': 5, // Friday
-				'openAt': 1420095600000, // 9:00
-				'closeAt': 1420124400000, // 17:00
-			}],
+				'openAt': 1501066800000, // 8:00
+				'closeAt': 1501102800000, // 18:00
+			}, {
+				'day': 6, // Saturday
+				'openAt': 1501066800000, // 9:00
+				'closeAt': 969739200000, // 17:00
+			} ],
 			zone: 3 // GMT + 3
 		};
 

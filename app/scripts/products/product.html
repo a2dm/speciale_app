@@ -1,7 +1,11 @@
 <ion-view>
-	<ion-nav-title>Product</ion-nav-title>
-	<ion-nav-buttons side="right">
-		<button class="button button-clear icon ion-ios-cart" ng-click="vm.showCart()"></button>
+	<ion-nav-title>Produto</ion-nav-title>
+	<ion-nav-buttons side="right" style="display: -webkit-inline-box">
+		<button class="button button-clear icon ion-folder" ui-sref="app.products({categoryId: category.categoryId, categoryName: category.title})"></button>
+		<button class="button button-clear icon ion-ios-star" ng-click="vm.showFavoritos()"></button>
+		<button class="button button-clear icon ion-ios-cart" ng-click="vm.showCart()">
+			<span class="badge badge-info" style="display: -webkit-inline-box; float: right">{{vm.lengthCart}} </span>
+		</button>
 	</ion-nav-buttons>
 
 	<ion-content has-header="true">
@@ -13,72 +17,64 @@
 		</ion-slide-box>
 
 		<div class="content-inner">
-			<h3>{{vm.product.title}}</h3>
-			<p><i class="icon ion-pricetags"></i> {{vm.product.tags.join(', ')}}</p>
-			<p class="padding-vertical">{{vm.product.body}}</p>
-
-			<div ng-if="hasStandardOptions || hasExtraOptions">
-				<h4>Options and Extras</h4>
-				<p>Select the options you want to be included in this item.</p>
-			</div>
-
-			<ion-list>
-				<div class="item item-divider" ng-if="vm.product.standardOptions.length > 0">
-					Options
-				</div>
-				<ion-item class="item-toggle" ng-repeat="option in vm.product.standardOptions">
-					{{option.name}}
-					<label class="toggle">
-						<input type="checkbox" ng-model="option.selected">
-						<div class="track">
-							<div class="handle"></div>
-						</div>
-					</label>
-				</ion-item>
-
-				<div class="item item-divider" ng-if="vm.product.extraOptions.length > 0">
-					Extras
-				</div>
-				<ion-item class="item-toggle" ng-repeat="option in vm.product.extraOptions">
-					{{option.name}}: {{option.value | currency : (option.currency || '$') : 2}}
-					<label class="toggle">
-						<input type="checkbox" ng-model="option.selected">
-						<div class="track">
-							<div class="handle"></div>
-						</div>
-					</label>
-				</ion-item>
-			</ion-list>
-			<h4>Size and prices</h4>
-			<p>Select an option and add it in your cart.</p>
-			<ion-radio
-					ng-repeat="price in vm.product.price"
-					ng-model="vm.selectedPrice" ng-value="price">
-				{{price.name}}: {{price.value | currency : price.currency : 2}}
-			</ion-radio>
-		</div>
-
-		<div class="row">
-			<div class="col">
-				<a class="button button-block" ng-click="vm.quickAddToCart()">
-					<i class="icon ion-bag"></i>
-					Quick add to cart
-				</a>
-			</div>
+			<h3 style="text-align: center"><strong>{{vm.product.desProduto}}</strong></h3>
+			<hr></hr>
+			<h4>Quantidade Lote Mínimo: <span class="badge badge-warning"> {{vm.product.qtdLoteMinimo}} </span></h4>
+			<h4>Quantidade Múltiplo: <span class="badge badge-warning">{{vm.product.qtdMultiplo}} </span></h4>
 		</div>
 
 		<div class="row">
 			<div class="col col-50">
 				<a class="button button-block" ng-click="vm.addToCart()">
-					<i class="icon ion-ios-cart"></i> Add to cart
+					<i class="icon ion-ios-cart"></i> Adicionar
 				</a>
 			</div>
 			<div class="col col-50">
 				<a class="button button-block" ng-click="vm.toggleFavorites()">
 					<i class="icon ion-ios-star" ng-class="{ 'balanced': vm.isInFavorites }"></i>
-					Add to favorites
+					Favorito
 				</a>
 			</div>
 		</div>
+
+		<style>
+			.badge {
+			  padding: 1px 9px 2px;
+			  font-size: 12.025px;
+			  font-weight: bold;
+			  white-space: nowrap;
+			  color: #ffffff;
+			  background-color: #999999;
+			  -webkit-border-radius: 9px;
+			  -moz-border-radius: 9px;
+			  border-radius: 9px;
+			}
+			
+			.badge-warning {
+			  background-color: #f89406;
+			}
+			.badge-warning:hover {
+			  background-color: #c67605;
+			}
+			.badge-success {
+			  background-color: #468847;
+			}
+			.badge-success:hover {
+			  background-color: #356635;
+			}
+			.badge-info {
+			  background-color: #3a87ad;
+			}
+			.badge-info:hover {
+			  background-color: #2d6987;
+			}
+			.badge-inverse {
+			  background-color: #333333;
+			}
+			.badge-inverse:hover {
+			  background-color: #1a1a1a;
+			}
+		</style>
+
 	</ion-content>
 </ion-view>

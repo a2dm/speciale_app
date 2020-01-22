@@ -50,8 +50,8 @@
 			$cordovaEmailComposer.isAvailable().then(function() {
 				var email = {
 					to: businessInfo.email,
-					subject: 'Cordova Icons',
-					body: 'How are you? Nice greetings from Leipzig'
+					subject: 'Speciale - APP',
+					body: ''
 				};
 
 				$cordovaEmailComposer.open(email);

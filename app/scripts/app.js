@@ -5,26 +5,21 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('restaurant', [
 	'ionic',
-	'ionic.cloud',
-
+	
 	'ngCordova',
 	'ionic-toast',
 	'LocalStorageModule',
-	'firebase',
-
+	
 	'config',
+	'restaurant.alterar-senha',
 	'restaurant.restaurant-cart',
 	'restaurant.restaurant-delivery',
 	'restaurant.categories',
 	'restaurant.products',
-	'restaurant.news',
 	'restaurant.map',
 	'restaurant.home',
-	'restaurant.push',
 	'restaurant.menu',
 	'restaurant.contact-us',
-	'restaurant.wordpress',
-	'restaurant.drupal',
 	'restaurant.favorites',
 	'gMaps'
 ])
@@ -48,5 +43,5 @@ angular.module('restaurant', [
 
 .config(function($urlRouterProvider) {
 	// if none of the above states are matched, use this as the fallback
-	$urlRouterProvider.otherwise('/app/home');
+	$urlRouterProvider.otherwise('/app/login');
 });

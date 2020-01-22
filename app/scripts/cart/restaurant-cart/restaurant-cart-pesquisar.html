@@ -1,0 +1,44 @@
+<ion-view view-title="Pesquisar" cache-view="false">
+	<ion-nav-buttons side="right">
+		<button class="button button-clear icon ion-gear-b" ng-click="vm.showOptions()"></button>
+	</ion-nav-buttons>
+
+	<form novalidate name="pesquisarForm">
+		<ion-nav-buttons side="right">
+			<button class="button button-clear icon ion-folder" ui-sref="app.products({categoryId: category.categoryId, categoryName: category.title})"></button>	
+		</ion-nav-buttons>
+				
+		<ion-content class="has-extended-footer">
+			<ion-list can-swipe="true">
+				<ion-item class="item-input item-stacked-label">
+					<span class="input-label">Data do Pedido *</span>
+					<input type="date" name="dataPedido" ng-model="vm.dataPedido" required style="width: 150px"/>
+					<p ng-show="pesquisarForm.dataPedido.$error.required && pesquisarForm.dataPedido.$dirty" 
+					class="error-message">
+						O campo Data do Pedido é obrigatório
+					</p>
+				</ion-item>
+			</ion-list>
+
+			<ion-list can-swipe="true">
+				<ion-item ng-repeat="item in vm.items">
+					
+					<h2 class="text-left"><strong>Protocolo: {{item.pedido.idPedido}}</strong></h2>
+					<hr>
+					<h3 class="text-left"><strong>Observação: {{item.pedido.observacao}}</strong></h3>
+					
+					<ion-option-button class="button-balanced" ng-click="vm.preparaAlterarPedido(item)">
+						Alterar
+					</ion-option-button>
+					<ion-option-button class="button-assertive" ng-click="vm.inativarPedido(item)">
+						Inativar
+					</ion-option-button>
+				</ion-item>
+			</ion-list>
+		</ion-content>
+
+		<div class="bar bar-footer bar-calm extended-footer" ng-click="vm.pesquisar(pesquisarForm)">
+			<div class="title">Pesquisar</div>
+		</div>
+	</form>
+</ion-view>

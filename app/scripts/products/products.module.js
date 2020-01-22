@@ -14,7 +14,8 @@
 							templateUrl: 'scripts/products/products.html',
 							controller: 'ProductsController as vm'
 						}
-					}
+					},
+					cache: false
 				})
 				.state('app.featured-product', {
 					url: '/products/featured/:productId',
@@ -32,18 +33,17 @@
 					}
 				})
 				.state('app.product', {
-					url: '/products/:categoryId/:productId',
+					url: '/products/:productId/:clienteId',
 					views: {
 						'menuContent': {
 							templateUrl: 'scripts/products/product.html',
 							controller: 'ProductController as vm'
-						}
+						},
+						cache: false
 					},
 					resolve: {
 						product: function($stateParams, $state, productsService) {
-							var categoryId = $stateParams.categoryId;
-							var productId = $stateParams.productId;
-							return productsService.get(categoryId, productId);
+							return productsService.get($stateParams.productId,$stateParams.clienteId);
 						}
 					}
 				});

@@ -15,8 +15,10 @@
 					resolve: {
 						categories: function(menuService) {
 							return menuService.getCategoriesMenuItem();
+
 						}
-					}
+					},
+					cache: false
 				});
 		});
 })();
